@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../static/js/GetMetrics.js"></script>
+{% endblock %}
+{% block general %}
+    {% if data %}
+    {% for i in data %}
+    <div class="grid grid-cols-2">
+        <div>
+            <div id="hostname" class="text-white">ПК: {{ i.hostname }}</div>
+            <div id="username" class="text-white">Пользователь: {{ i.username }}</div>
+        </div>
+        <div>
+            <div id="count_cpu" class="text-white">Потоки: {{ i.count_cpu }} </div>
+            <div id="logic_cpu" class="text-white">Ядра: {{ i.logic_cpu }}</div>
+        </div>
+        <div class="text-white">
+            <p>Выводимое число записей</p>
+            <input id="metrics_number" type="text" class="text-black">
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div class="flex justify-center">
+    <div>
+        <div id="general_data">
+            <article class="text-wrap italic">
+                <div class="text-xl">
+                    <h1>Метрики</h1>
+                </div>
+                <table id='table' class="table-auto border-collapse border border-slate-400 text-base">
+                    <thead>
+                    <tr>
+                        <th class="border border-slate-300">Загрузка цп в %</th>
+                        <th class="border border-slate-300">Загрузка памяти в %</th>
+                    </tr>
+                    </thead>
+                    <tbody id="metrics_data">
+
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}

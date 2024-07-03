@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://cdn.tailwindcss.com"></script>
+    <title>Simple metrics</title>
+    {% block head %} {% endblock %}
+</head>
+<body>
+{% block dark %}
+<div class="bg-black w-full p-10 h-full">
+    {% block general %}
+    {% endblock %}
+</div>
+{% endblock %}
+<div id="content" class="p-8 px-24">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>
